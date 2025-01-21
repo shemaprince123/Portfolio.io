@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prince's Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: #000000;
+        color: #ffffff;
+        font-family: "Lora", serif;
+        line-height: 1.6;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Playfair Display", serif;
+      }
+
+      /* Navbar */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 1rem;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .brand {
+        font-size: 1.5rem;
+        color: #ffffff;
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .nav-links a {
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #ff8c00;
+      }
+
+      .resume-btn {
+        background-color: #ffa500;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        color: #000000 !important;
+      }
+
+      .resume-btn:hover {
+        background-color: #ff8c00;
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 2rem;
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)
+          ),
+          url("backg.jpg"); /* Replace with your image path */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .hero h2 {
+        font-size: 4rem;
+        color: #ffa500;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+
+      .typed-text {
+        font-size: 1.5rem;
+        min-height: 2em;
+      }
+
+      .social-icons {
+        margin-top: 2rem;
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .social-icons a {
+        color: #ffffff;
+        font-size: 1.8rem;
+        transition: all 0.3s ease;
+      }
+
+      .social-icons a:hover {
+        color: #ffa500;
+        transform: translateY(-3px);
+      }
+
+      /* About Section */
+      .about {
+        padding: 5rem 2rem;
+      }
+
+      .about-content {
+        display: flex;
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .about-img {
+        flex: 1;
+      }
+
+      .about-img img {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 10px;
+      }
+
+      .about-text {
+        flex: 2.5;
+        font-size: 1.2rem;
+      }
+
+      .read-more {
+        display: none;
+      }
+
+      .read-more-btn {
+        background-color: #ffa500;
+        color: #000000;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 1rem;
+        transition: background-color 0.3s;
+      }
+
+      .read-more-btn:hover {
+        background-color: #ff8c00;
+      }
+
+      /* Experience Section */
+      .experience {
+        padding: 5rem 2rem;
+      }
+
+      .experience-item {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 2rem;
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 10px;
+        transition: transform 0.3s;
+      }
+
+      .experience-item:hover {
+        transform: translateX(10px);
+      }
+
+      .company-logo {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      .experience-content {
+        flex: 1;
+      }
+
+      .duration {
+        color: #ffa500;
+        margin: 0.5rem 0;
+      }
+
+      /* Projects Section */
+      .projects {
+        padding: 5rem 2rem;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .project-card {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 10px;
+        transition: transform 0.3s;
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .tech-stack {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin: 1rem 0;
+      }
+
+      .tech-tag {
+        background-color: #ffa500;
+        color: #000000;
+        padding: 0.25rem 0.5rem;
+        border-radius: 3px;
+        font-size: 0.9rem;
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 5rem 2rem;
+      }
+
+      .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .map-container {
+        width: 100%;
+        margin-top: 2rem;
+      }
+
+      .map {
+        width: 100%;
+        height: 400px;
+        border-radius: 10px;
+        border: 2px solid #ffa500;
+      }
+
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        padding: 0.5rem;
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid #ffa500;
+        color: #ffffff;
+        border-radius: 5px;
+        transition: border-color 0.3s;
+      }
+
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        outline: none;
+        border-color: #ff8c00;
+      }
+
+      .contact-form button {
+        background-color: #ffa500;
+        color: #000000;
+        border: none;
+        padding: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .contact-form button:hover {
+        background-color: #ff8c00;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+        color: #ffa500;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .about-content,
+        .contact-container {
+          flex-direction: column;
+          grid-template-columns: 1fr;
+        }
+
+        .hero h2 {
+          font-size: 3rem;
+        }
+
+        .experience-item {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="#" class="brand">Prince 🫅🏿</a>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a
+          href="https://drive.google.com/file/d/1Fb4uAOgN2EI-2jVJkVAgFM6DlYtXdhvK/view?usp=sharing"
+          class="resume-btn"
+          target="_blank"
+          >Resume</a
+        >
+      </div>
+    </nav>
+
+    <section id="home" class="hero">
+      <h1>Hi, I'm</h1>
+      <h2>Shema Prince</h2>
+      <div class="typed-text"></div>
+      <div class="social-icons">
+        <a href="https://github.com/shemaprince123" title="GitHub"
+          ><i class="fab fa-github"></i
+        ></a>
+        <a href="https://www.linkedin.com/in/shemaprince/" title="LinkedIn"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+        <a href="https://x.com/Shemaprince7" title="X (Twitter)"
+          ><i class="fab fa-x-twitter"></i
+        ></a>
+        <a href="https://medium.com/@shemaprince" title="Medium"
+          ><i class="fab fa-medium"></i
+        ></a>
+        <a href="https://www.instagram.com/doro____prince/" title="Instagram"
+          ><i class="fab fa-instagram"></i
+        ></a>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <div class="about-img">
+          <img src="image.jpg" alt="Prince" />
+        </div>
+        <div class="about-text">
+          <p>
+            Hello, I’m Shema Prince, a cybersecurity and technology enthusiast
+            based in Nairobi, Kenya. I hold a B.Sc. in Applied Computer
+            Technology with a specialization in Forensic Information Technology
+            and Cybercrime and am pursuing a Master of Science in Information
+            Security (MSc. ISEC). My expertise includes threat detection,
+            penetration testing, network security, and automation scripting
+            using tools like Python and PowerShell.
+          </p>
+          <br />
+          <div class="read-more">
+            <p>
+              Professionally, I have gained hands-on experience in cybersecurity
+              and software development through roles such as a Cybersecurity
+              Intern at NCBA Bank Kenya, where I improved system security and
+              automated security tasks, and a Full Stack Software Engineer
+              Intern at DevTown, where I developed high-performance
+              applications. I also contribute to Africa’s digital resilience as
+              a Volunteer at the Africa Cybersecurity Consortium.
+            </p>
+            <br />
+            <p>
+              In addition to my technical skills, I’ve held leadership roles,
+              including serving as President of the Rwandan Community at
+              USIU-Africa, showcasing my ability to lead and inspire. I’m also
+              passionate about community impact, with volunteering efforts
+              supporting children and families in need.
+            </p>
+            <br />
+            <p>
+              Driven by curiosity and innovation, I’ve developed projects like
+              the AgriFarm Application, which provides data-driven farming
+              insights, and the IGA Learning App, a platform that enhances
+              education accessibility. My goal is to empower organizations with
+              secure and scalable solutions while contributing to technological
+              advancements.
+            </p>
+          </div>
+          <button class="read-more-btn">Read More</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="experience">
+      <h2 class="section-title">Experience</h2>
+      <!-- Example Experience Item -->
+      <div class="experience-item">
+        <img
+          src="https://media.licdn.com/dms/image/v2/C4D0BAQEqcYrZvmGf7A/company-logo_200_200/company-logo_200_200/0/1630459919222/rwandacybersecurity_logo?e=1745452800&v=beta&t=m_DoM19x_b4-3dcesHoKtmgDGzh2q6GN7OzftAAO05w"
+          alt="Company Logo"
+          class="company-logo"
+        />
+        <div class="experience-content">
+          <h3>Cybersecurity Volunteer</h3>
+          <h4>Africa Cybersecurity Consortium (ACC)</h4>
+          <p class="duration">Oct 2024 - Present</p>
+          <p>
+            <li>
+              Actively contribute to various cybersecurity projects, enhancing
+              digital security across Africa.
+            </li>
+            <li>
+              Collaborate with cybersecurity professionals to implement
+              initiatives focused on cybersecurity awareness, resilience, and
+              education.
+            </li>
+          </p>
+        </div>
+      </div>
+      <!-- Repeat for other experiences -->
+      <div class="experience-item">
+        <img
+          src="https://media.licdn.com/dms/image/v2/D4D0BAQEMRfX2ouW2lw/company-logo_200_200/company-logo_200_200/0/1727855093948/prodigy_infotech_logo?e=1745452800&v=beta&t=GEJJ6PVXWQGlSe8REjcIvQnHZTvKRyRiYSsKuOOzD8E"
+          alt="Company Logo"
+          class="company-logo"
+        />
+        <div class="experience-content">
+          <h3>Cybersecurity Intern</h3>
+          <h4>Prodigy InfoTech</h4>
+          <p class="duration">Nov 2024 - Dec 2024</p>
+          <p>
+            <li>
+              Developed essential cybersecurity skills through practical tasks,
+              including security audits, risk assessments, and threat
+              monitoring.
+            </li>
+            <li>
+              Contributed to the integrity of organizational systems and
+              developed a deeper understanding of cybersecurity tools and
+              methodologies
+            </li>
+          </p>
+        </div>
+      </div>
+      <!-- Repeat for other experiences -->
+      <div class="experience-item">
+        <img
+          src="https://media.licdn.com/dms/image/v2/C4D0BAQFxsOCy4mqsSw/company-logo_200_200/company-logo_200_200/0/1630562222656/ncba_group_logo?e=1745452800&v=beta&t=pzdHApljpOyziuwWrLcSeAh_Mf2zmOX4tuIh29myX8w"
+          alt="Company Logo"
+          class="company-logo"
+        />
+        <div class="experience-content">
+          <h3>Information Security Intern</h3>
+          <h4>NCBA Group</h4>
+          <p class="duration">May 2024 - Sept 2024</p>
+          <p>
+            <li>
+              Monitored security systems for anomalies, reducing incident
+              resolution time by 20%.
+            </li>
+            <li>
+              Conducted threat analysis and vulnerability assessments using
+              tools such as SecurityHQ, QRadar, and Cisco Duo, identifying over
+              50 potential risks.
+            </li>
+            <li>
+              Assisted in PowerShell scripting to automate repetitive security
+              tasks and improve operational efficiency.
+            </li>
+            <li>
+              Utilized Azure Security Center to monitor and manage the bank's
+              cloud infrastructure security, enhancing the protection of
+              sensitive data.
+            </li>
+          </p>
+        </div>
+      </div>
+      <!-- Repeat for other experiences -->
+      <div class="experience-item">
+        <img
+          src="https://media.licdn.com/dms/image/v2/C4E0BAQEBQ0ItUQd9GA/company-logo_200_200/company-logo_200_200/0/1662036891199/devtown_in_logo?e=1745452800&v=beta&t=7Es6xZA2c5cFAGBBm1CBlV6T8nBIHC5eT7UAc95TBOA"
+          alt="Company Logo"
+          class="company-logo"
+        />
+        <div class="experience-content">
+          <h3>Software Engineer Intern (Full Stack)</h3>
+          <h4>DevTown</h4>
+          <p class="duration">May 2023 - Sept 2023</p>
+          <p>
+            <li>
+              Developed full-stack applications using Python, JavaScript, React,
+              and Node.js, ensuring high performance and a seamless user
+              experience.
+            </li>
+            <li>
+              Managed MySQL databases, ensuring secure data management practices
+              and efficient performance.
+            </li>
+            <li>
+              Worked in agile teams, adhering to best coding practices and
+              conducting testing to optimize application performance.
+            </li>
+          </p>
+        </div>
+      </div>
+      <!-- Repeat for other experiences -->
+      <!--<div class="experience-item">
+        <img
+          src="/api/placeholder/100/100"
+          alt="Company Logo"
+          class="company-logo"
+        />
+        <div class="experience-content">
+          <h3>Position Title</h3>
+          <h4>Company Name</h4>
+          <p class="duration">Jan 2020 - Present</p>
+          <p>Job description goes here...</p>
+        </div>
+      </div>-->
+      <!-- Repeat for other experiences -->
+    </section>
+
+    <section id="projects" class="projects">
+      <h2 class="section-title">Projects</h2>
+      <div class="project-grid">
+        <!-- Example Project Card -->
+        <div class="project-card">
+          <h3>Network Packet Analyzer</h3>
+          <p class="duration">Duration: 1 month</p>
+          <p>
+            This project is a network packet sniffer tool developed to capture
+            and analyze network traffic. It displays essential information such
+            as source and destination IP addresses, protocols, and payload data.
+            <br /><br /><b>Note:</b> Use this tool ethically and ensure you have
+            permission to analyze network traffic.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Scapy</span>
+          </div>
+          <a
+            href="https://github.com/shemaprince123/PRODIGY_CS_05"
+            style="color: #ffa500"
+            >View Project</a
+          >
+        </div>
+        <!-- Repeat for other projects -->
+        <div class="project-card">
+          <h3>Keylogger</h3>
+          <p class="duration">Duration: 1 month</p>
+          <p>
+            I created this project as a basic keylogger to demonstrate how
+            keystrokes can be recorded and logged using Python. The program
+            captures keyboard input and saves it to a specified log file.
+            <br /><br />
+            <b>Important:</b> This tool is for educational purposes only and
+            must be used ethically and with permission.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">pynput</span>
+          </div>
+          <a
+            href="https://github.com/shemaprince123/PRODIGY_CS_04"
+            style="color: #ffa500"
+            >View Project</a
+          >
+        </div>
+        <!-- Repeat for other projects -->
+        <div class="project-card">
+          <h3>Password Complexity Checker</h3>
+          <p class="duration">Duration: 1 month</p>
+          <p>
+            This project provides a graphical user interface (GUI) tool to check
+            the strength of passwords. The tool evaluates passwords based on
+            several criteria such as length, uppercase and lowercase letters,
+            numbers, and special characters. It gives feedback on how strong or
+            weak the password is and provides suggestions to improve the
+            password strength.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">tkinter</span>
+            <span class="tech-tag">re</span>
+          </div>
+          <a
+            href="https://github.com/shemaprince123/PRODIGY_CS_03"
+            style="color: #ffa500"
+            >View Project</a
+          >
+        </div>
+        <!-- Repeat for other projects -->
+        <div class="project-card">
+          <h3>AgriFarm Mobile Application</h3>
+          <p class="duration">Duration: 3 months</p>
+          <p>
+            The AgriFarm Application is a data-driven platform designed to
+            assist farmers with personalized insights tailored to their specific
+            needs. It integrates tools for weather forecasts, predictive
+            analytics, pest and disease management, and crop-specific
+            recommendations. By leveraging advanced technologies, the app
+            enables farmers to make informed decisions, improve yields, and
+            enhance overall productivity.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-tag">java</span>
+            <span class="tech-tag"> React Native</span>
+            <span class="tech-tag">Node.js</span>
+          </div>
+          <a href="#" style="color: #ffa500">View Project</a>
+        </div>
+        <!-- Repeat for other projects -->
+      </div>
+      <div class="project-grid">
+        <!-- Example Project Card second line -->
+        <div class="project-card">
+          <h3>Image Encryption/Decryption</h3>
+          <p class="duration">Duration: 1 month</p>
+          <p>
+            This project demonstrates an encryption and decryption technique for
+            images using the XOR operation. The image is converted to a numpy
+            array, and the XOR operation is applied to each pixel using a
+            specified key. Since XOR is a symmetric operation, the same method
+            can be used for both encryption and decryption.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Pillow</span>
+            <span class="tech-tag">numpy</span>
+          </div>
+          <a
+            href="https://github.com/shemaprince123/PRODIGY_CS_02"
+            style="color: #ffa500"
+            >View Project</a
+          >
+        </div>
+        <!-- Repeat for other projects -->
+        <div class="project-card">
+          <h3>Caesar Cipher Program</h3>
+          <p class="duration">Duration: 1 month</p>
+          <p>
+            This Caesar Cipher program is a Python-based tool that implements
+            the classic Caesar Cipher encryption technique. It allows users to
+            encrypt and decrypt messages by shifting each letter of the alphabet
+            by a specified number of positions. The program is designed to
+            handle both uppercase and lowercase letters, while leaving
+            non-alphabetic characters unchanged.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-tag">Python </span>
+          </div>
+          <a
+            href="https://github.com/shemaprince123/PRODIGY_CS_01"
+            style="color: #ffa500"
+            >View Project</a
+          >
+        </div>
+        <!-- Repeat for other projects -->
+        <div class="project-card">
+          <h3>IGA Learning Mobile App</h3>
+          <p class="duration">Duration: 3 months</p>
+          <p>
+            The IGA Learning App is an all-in-one platform for course
+            enrollment, assessments, and certifications. The app features
+            enhanced search functionality for educational materials, secure
+            payment systems, and a user-friendly interface to simplify the
+            learning experience. Designed with scalability and security in mind,
+            the platform streamlines access to quality education and promotes
+            lifelong learning.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-tag">java</span>
+            <span class="tech-tag"> React Native</span>
+            <span class="tech-tag">Node.js</span>
+          </div>
+          <a href="#" style="color: #ffa500">View Project</a>
+        </div>
+        <!-- Repeat for other projects -->
+        <!--<div class="project-card">
+          <h3>Project Name</h3>
+          <p class="duration">Duration: 3 months</p>
+          <p>Project description goes here...</p>
+          <div class="tech-stack">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Node.js</span>
+          </div>
+          <a href="#" style="color: #ffa500">View Project</a>
+        </div> -->
+        <!-- Repeat for other projects -->
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2 class="section-title">Contact Me</h2>
+      <div class="contact-container">
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+          <p><i class="fas fa-envelope"></i> shemaprince123@gmail.com</p>
+          <p>
+            <i class="fas fa-phone"></i> +254 112 766 182 | +250 780 487 897
+          </p>
+          <p><i class="fas fa-map-marker-alt"></i> Nairobi - Kenya</p>
+          <p><i class="fas fa-map-marker-alt"></i> Kigali - Rwanda</p>
+          <div class="social-icons">
+            <a href="https://github.com/shemaprince123" title="GitHub"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="https://www.linkedin.com/in/shemaprince/" title="LinkedIn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="https://x.com/Shemaprince7" title="X (Twitter)"
+              ><i class="fab fa-x-twitter"></i
+            ></a>
+            <a href="https://medium.com/@shemaprince" title="Medium"
+              ><i class="fab fa-medium"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/doro____prince/"
+              title="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+          <!--<div class="map-container">
+            <iframe
+              class="map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7573149653697!2d30.061708!3d-1.944772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwNTYnNDEuMiJTIDMwwrAwMyc0Mi4yIkU!5e0!3m2!1sen!2srw!4v1635784795105!5m2!1sen!2srw"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+          </div>-->
+        </div>
+        <!--<form class="contact-form">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <input type="text" placeholder="Subject" required />
+          <textarea rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>-->
+        <!-- <div class="map-container">
+          <iframe
+            class="map"
+            src="https://www.google.com/maps/place/Royal+Suburbs+by+TSAVO/@-1.216271,36.8865355,367m/data=!3m1!1e3!4m6!3m5!1s0x182f15d5e0b42a23:0xa927b00344458db3!8m2!3d-1.2170042!4d36.887663!16s%2Fg%2F11gy6k3jg8?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>-->
+        <div class="mapouter">
+          <div class="gmap_canvas map">
+            <iframe
+              class="gmap_iframe"
+              frameborder="0"
+              scrolling="no"
+              marginheight="0"
+              marginwidth="0"
+              src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=garden city &amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+            ></iframe
+            ><a href="https://sprunkiphasez.com/">Sprunki Phase</a>
+          </div>
+        </div>
+
+        <style>
+          .mapouter {
+            position: relative;
+            text-align: right;
+            width: 600px;
+            height: 400px;
+          }
+          .gmap_canvas {
+            overflow: hidden;
+            background: none !important;
+            width: 600px;
+            height: 400px;
+          }
+          .gmap_iframe {
+            width: 600px !important;
+            height: 400px !important;
+          }
+        </style>
+      </div>
+    </section>
+
+    <script>
+      // Typing effect
+      const positions = [
+        "Cybersecurity Analyst",
+        "Software Engineer",
+        "System Administrator",
+        "Technical Support Engineer",
+        "Virtual Assistant",
+      ];
+
+      let currentPosition = 0;
+      let currentChar = 0;
+      let isDeleting = false;
+      let typingSpeed = 100;
+
+      function typeText() {
+        const typedTextElement = document.querySelector(".typed-text");
+        const currentText = positions[currentPosition];
+
+        if (isDeleting) {
+          typedTextElement.textContent = currentText.substring(
+            0,
+            currentChar - 1
+          );
+          currentChar--;
+          typingSpeed = 50;
+        } else {
+          typedTextElement.textContent = currentText.substring(
+            0,
+            currentChar + 1
+          );
+          currentChar++;
+          typingSpeed = 100;
+        }
+
+        if (!isDeleting && currentChar === currentText.length) {
+          isDeleting = true;
+          typingSpeed = 1000; // Pause at end
+        } else if (isDeleting && currentChar === 0) {
+          isDeleting = false;
+          currentPosition = (currentPosition + 1) % positions.length;
+          typingSpeed = 200; // Pause before starting new word
+        }
+
+        setTimeout(typeText, typingSpeed);
+      }
+
+      // Start typing effect
+      typeText();
+
+      // Read More functionality
+      document
+        .querySelector(".read-more-btn")
+        .addEventListener("click", function () {
+          const readMore = document.querySelector(".read-more");
+          const btn = document.querySelector(".read-more-btn");
+
+          if (readMore.style.display === "none" || !readMore.style.display) {
+            readMore.style.display = "block";
+            btn.textContent = "Read Less";
+          } else {
+            readMore.style.display = "none";
+            btn.textContent = "Read More";
+          }
+        });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Form submission handling
+      document
+        .querySelector(".contact-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          // Add your form submission logic here
+          alert("Thank you for your message! I will get back to you soon.");
+          this.reset();
+        });
+
+      // Add animation to experience items on scroll
+      const experienceItems = document.querySelectorAll(".experience-item");
+      const projectCards = document.querySelectorAll(".project-card");
+
+      const observerOptions = {
+        threshold: 0.2,
+        rootMargin: "0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateX(0)";
+          }
+        });
+      }, observerOptions);
+
+      experienceItems.forEach((item) => {
+        item.style.opacity = "0";
+        item.style.transform = "translateX(-20px)";
+        item.style.transition = "all 0.5s ease-in-out";
+        observer.observe(item);
+      });
+
+      projectCards.forEach((card) => {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(20px)";
+        card.style.transition = "all 0.5s ease-in-out";
+        observer.observe(card);
+      });
+    </script>
+  </body>
+</html>
