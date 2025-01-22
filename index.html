@@ -40,6 +40,35 @@
         text-align: justify;
       }
 
+    /* Updated Footer Style */
+    .footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100px;  /* Give some minimum height */
+        width: 100%;
+        padding: 2rem;
+        margin-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer .copyright {
+        color: #FFFFFF;
+        font-family: 'Lora', serif;
+        font-size: 1.1rem;  /* Slightly larger font size */
+        text-align: center;
+    }
+
+    .footer .copyright strong {
+        color: #FFA500;
+    }
+
+    /* Optional: Add some hover effect */
+    .footer .copyright strong:hover {
+        color: #FF8C00;
+        transition: color 0.3s ease;
+    }
+
       /* Navbar */
       nav {
         position: fixed;
@@ -506,9 +535,9 @@
         <a href="https://www.linkedin.com/in/shemaprince/" title="LinkedIn"
           ><i class="fab fa-linkedin"></i
         ></a>
-        <a href="https://x.com/Shemaprince7" title="X (Twitter)"
+        <!--<a href="https://x.com/Shemaprince7" title="X (Twitter)"
           ><i class="fab fa-x-twitter"></i
-        ></a>
+        ></a>-->
         <a href="https://medium.com/@shemaprince" title="Medium"
           ><i class="fab fa-medium"></i
         ></a>
@@ -1037,9 +1066,9 @@ Full-stack Web Development</h3>
             <a href="https://www.linkedin.com/in/shemaprince/" title="LinkedIn"
               ><i class="fab fa-linkedin"></i
             ></a>
-            <a href="https://x.com/Shemaprince7" title="X (Twitter)"
-              ><i class="fab fa-x-twitter"></i
-            ></a>
+            <!--<a href="https://x.com/Shemaprince7" title="X (Twitter)"
+              ><i class="fab fa-twitter"></i
+            ></a>-->
             <a href="https://medium.com/@shemaprince" title="Medium"
               ><i class="fab fa-medium"></i
             ></a>
@@ -1106,6 +1135,11 @@ Full-stack Web Development</h3>
           }
         </style>
       </div>
+
+      <!-- Add this new footer section just before the closing body tag, after all other sections -->
+    <footer class="footer">
+        <p class="copyright">© 2025 <strong>Shema Prince</strong></p>
+    </footer>
     </section>
 
     <script>
