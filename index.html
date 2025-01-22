@@ -36,6 +36,10 @@
         font-family: "Playfair Display", serif;
       }
 
+      p {
+        text-align: justify;
+      }
+
       /* Navbar */
       nav {
         position: fixed;
@@ -346,6 +350,129 @@
           text-align: center;
         }
       }
+
+      /* Education Section */
+      .education {
+        padding: 5rem 2rem;
+      }
+
+      .education-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .education-card {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 10px;
+        transition: transform 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .education-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .education-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background-color: #ffa500;
+      }
+
+      .education-card h3 {
+        color: #ffa500;
+        margin-bottom: 0.5rem;
+      }
+
+      .education-card .school {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .education-card .duration {
+        color: #ffa500;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      /* Certificates Section */
+      .certificates {
+        padding: 5rem 2rem;
+      }
+
+      .certificate-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .certificate-card {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 10px;
+        transition: all 0.3s;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .certificate-card:hover {
+        transform: translateY(-5px);
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+
+      .certificate-card .cert-logo {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1rem;
+        border-radius: 5px;
+      }
+
+      .certificate-card h3 {
+        color: #ffa500;
+        margin-bottom: 0.5rem;
+      }
+
+      .certificate-card .issuer {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .certificate-card .date {
+        color: #ffa500;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      .certificate-card .verify-btn {
+        background-color: #ffa500;
+        color: #000000;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        text-align: center;
+        margin-top: auto;
+        transition: background-color 0.3s;
+      }
+
+      .certificate-card .verify-btn:hover {
+        background-color: #ff8c00;
+      }
+
+      /* Update media queries */
+      @media (max-width: 768px) {
+        .education-grid,
+        .certificate-grid {
+          grid-template-columns: 1fr;
+        }
+      }
     </style>
   </head>
   <body>
@@ -356,6 +483,8 @@
         <a href="#about">About Me</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#certificates">Certificates</a>
         <a href="#contact">Contact</a>
         <a
           href="https://drive.google.com/file/d/1Fb4uAOgN2EI-2jVJkVAgFM6DlYtXdhvK/view?usp=sharing"
@@ -738,6 +867,158 @@
       </div>
     </section>
 
+    <!-- Add these new sections before the Contact section -->
+    <section id="education" class="education">
+      <h2 class="section-title">Education</h2>
+      <div class="education-grid">
+        <!-- Example Education Card -->
+        <div class="education-card">
+          <h3>Master of Science in Information Security</h3>
+          <div class="school">
+            United States International University Africa
+          </div>
+          <div class="duration">2025 - 2026</div>
+
+          <p>
+            I am currently pursuing a Master of Science in Information Security
+            at USIU-Africa, where I am gaining advanced expertise in
+            cybersecurity. The program focuses on assessing emerging information
+            security threats, conducting forensic audits, designing
+            cryptographic solutions, and implementing network defense strategies
+            to counter cyber threats. I am also developing skills in analyzing
+            strategic security governance frameworks, executing scholarly
+            research, and effectively communicating in professional contexts,
+            equipping me to tackle complex cybersecurity challenges in modern
+            organizations.
+          </p>
+        </div>
+        <!-- Add more education cards as needed -->
+        <!-- Example Education Card -->
+        <div class="education-card">
+          <h3>Bachelor of Science in Applied Computer Technology</h3>
+          <div class="school">
+            United States International University Africa
+          </div>
+          <div class="duration">2020 - 2024</div>
+          <p>• Concentration in Forensic Information Technology & Cybercrime</p>
+          <br />
+          <p>
+            This interdisciplinary program equipped me with expertise in
+            designing, deploying, and managing computing and telecommunication
+            resources, alongside developing technology infrastructures for
+            organizations. Through specialized coursework, hands-on projects,
+            and an internship, I gained practical skills in network security,
+            distributed systems, mobile and web application development, and IT
+            management. My concentration further honed my abilities in
+            cybersecurity, digital forensics, and solving complex IT challenges
+            with a strong focus on industry-relevant solutions.
+          </p>
+        </div>
+        <!-- Add more education cards as needed -->
+      </div>
+    </section>
+
+    <section id="certificates" class="certificates">
+      <h2 class="section-title">Certifications</h2>
+      <div class="certificate-grid">
+        <!-- Example Certificate Card -->
+        <div class="certificate-card">
+          <img
+            src="https://media.licdn.com/dms/image/v2/D4D0BAQFaAJgEr_iIzA/company-logo_200_200/company-logo_200_200/0/1685533881306/cyber_shujaa_logo?e=1745452800&v=beta&t=NKxOn5ZoY0sm9iQ0NawyfU_Sep8qVShCjTPlbMMJX1g"
+            alt="Certificate Logo"
+            class="cert-logo"
+          />
+          <h3>Security Analyst</h3>
+          <div class="issuer">Cyber Shujaa</div>
+          <div class="date">Issued: Aug 2024 </div>
+          <p>
+           The Security Analyst program equipped me with practical skills in vulnerability assessment, penetration testing, and Security Operations Center (SOC) analysis, preparing me to identify, assess, and mitigate cybersecurity threats effectively.
+          <br></p>
+          <a href="https://drive.google.com/file/d/1hmSeeeNTyfUagZSY4VnfwOqSCIyLdl5x/view" class="verify-btn">Verify Certificate</a>
+        </div>
+        <!-- Add more certificate cards as needed -->
+        <div class="certificate-card">
+          <img
+            src="https://media.licdn.com/dms/image/v2/C4E0BAQEBQ0ItUQd9GA/company-logo_200_200/company-logo_200_200/0/1662036891199/devtown_in_logo?e=1745452800&v=beta&t=7Es6xZA2c5cFAGBBm1CBlV6T8nBIHC5eT7UAc95TBOA"
+            alt="Certificate Logo"
+            class="cert-logo"
+          />
+          <h3>
+Full-stack Web Development</h3>
+          <div class="issuer">DevTown</div>
+          <div class="date">Issued: Sept 2023</div>
+          <p>I gained hands-on experience with MERN stack technologies (MongoDB, Express.js, React.js, and Node.js). Through practical projects, I developed dynamic web applications, honed my skills in front-end and back-end development, and deepened my understanding of building scalable and user-friendly solutions.
+          </p>
+          <a href="https://www.cert.devtown.in/verify/Z1jkuG1" class="verify-btn">Verify Certificate</a>
+        </div>
+        <!-- Add more certificate cards as needed -->
+        <div class="certificate-card">
+          <img
+            src="https://media.licdn.com/dms/image/v2/C4D0BAQGexnfBxeEG-g/company-logo_200_200/company-logo_200_200/0/1630530042036/coursera_logo?e=1745452800&v=beta&t=9tXO0wDKSYyjFC2-gYHNVZGj5o3_ROBo0z0_Ob2ZyAQ"
+            alt="Certificate Logo"
+            class="cert-logo"
+          />
+          <h3>Google IT Support</h3>
+          <div class="issuer">Coursera</div>
+          <div class="date">Issued: Jan 2023</div>
+          <p>
+            The program prepared me for entry-level IT support roles by completing five hands-on courses designed by Google. I gained foundational skills in troubleshooting, customer service, networking, operating systems, system administration, and security, equipping me to provide effective IT support.
+          </p>
+          <a href="https://www.credly.com/badges/0529e877-ea7c-4853-ba7b-83417a9fb091/linked_in_profile" class="verify-btn">Verify Certificate</a>
+        </div>
+        <!-- Add more certificate cards as needed -->
+      </div>
+      
+      <div class="certificate-grid">
+        <!-- Example Certificate Card -->
+        <div class="certificate-card">
+          <img
+            src="https://boltechinstitute.com/wp-content/uploads/2021/01/Final-Logo.png"
+            alt="Certificate Logo"
+            class="cert-logo"
+          />
+          <h3>Computer Repair and Maintenance</h3>
+          <div class="issuer">Boltech Training Institute</div>
+          <div class="date">Issued: Feb 2023 </div>
+          <p>
+            The Computer Repair and Maintenance course at Boltech taught me essential skills in hardware and software troubleshooting, virus removal, and data recovery, preparing me to address and resolve common technical issues in computer systems.
+          </p>
+          <a href="https://drive.google.com/file/d/1r0dMKye9Cg0XIKsQT3elPkvmNkg4FK6f/view" class="verify-btn">Verify Certificate</a>
+        </div>
+        <!-- Add more certificate cards as needed -->
+         <div class="certificate-card">
+          <img
+            src="https://media.licdn.com/dms/image/v2/D4D0BAQG6KNMnwz5Rug/company-logo_200_200/company-logo_200_200/0/1731438508590/alxafrica_logo?e=1745452800&v=beta&t=QjMO3A4u6OgOSt7YL-IMHC1gZXH4KZGrKHCMu1kdnd8"
+            alt="Certificate Logo"
+            class="cert-logo"
+          />
+          <h3>Virtual Assistant</h3>
+          <div class="issuer">alx_africa</div>
+          <div class="date">Issued: Nov 2024 </div>
+          <p>
+            ALX equipped me with skills in administrative support, time management, communication, and task organization, preparing me to effectively assist professionals and businesses in managing daily operations remotely.
+          </p>
+          <a href="https://intranet.alxswe.com/certificates/fnF7PmhrHL" class="verify-btn">Verify Certificate</a>
+        </div>
+        <!-- Add more certificate cards as needed -->
+         <div class="certificate-card">
+          <img
+            src="https://media.licdn.com/dms/image/v2/D4D0BAQG6KNMnwz5Rug/company-logo_200_200/company-logo_200_200/0/1731438508590/alxafrica_logo?e=1745452800&v=beta&t=QjMO3A4u6OgOSt7YL-IMHC1gZXH4KZGrKHCMu1kdnd8"
+            alt="Certificate Logo"
+            class="cert-logo"
+          />
+          <h3>AI Career Essentials</h3>
+          <div class="issuer">alx_africa</div>
+          <div class="date">Issued: Jul 2024 </div>
+          <p>
+            The AI Career Essentials certification from ALX provided me with a solid foundation in artificial intelligence, covering key concepts such as machine learning, neural networks, and AI applications, preparing me to pursue a career in the AI field.
+          </p>
+          <a href="#" class="verify-btn">Verify Certificate</a>
+        </div>
+        <!-- Add more certificate cards as needed -->
+         
+    </section>
+
     <section id="contact" class="contact">
       <h2 class="section-title">Contact Me</h2>
       <div class="contact-container">
@@ -800,7 +1081,7 @@
               scrolling="no"
               marginheight="0"
               marginwidth="0"
-              src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=garden city &amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+              src="https://maps.google.com/maps?width=400&amp;height=400&amp;hl=en&amp;q=garden city &amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
             ></iframe
             ><a href="https://sprunkiphasez.com/">Sprunki Phase</a>
           </div>
